@@ -1,0 +1,12 @@
+services:
+  app:
+    # env_file: .env
+    build:
+      context: ./
+      dockerfile: ./conf/node/Dockerfile
+    ports:
+      - '${INNGEST_PORT:-18288}:8288'
+      - '${APP_PORT:-13000}:3000'
+    volumes:
+      - .:/opt/app
+    command: sleep infinity
